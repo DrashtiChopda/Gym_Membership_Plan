@@ -216,7 +216,7 @@ class _GenderScreenState extends State<GenderScreen> {
               buildGenderCard(
                 title: 'Male',
 
-                image: 'assets/images/male.png',
+                image: 'assets/images/men.png',
 
                 selected: selectedGender == 'Male',
 
@@ -235,7 +235,7 @@ class _GenderScreenState extends State<GenderScreen> {
               buildGenderCard(
                 title: 'Female',
 
-                image: 'assets/images/female.png',
+                image: 'assets/images/women.png',
 
                 selected: selectedGender == 'Female',
 

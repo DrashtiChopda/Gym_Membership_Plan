@@ -1,7 +1,7 @@
 // File: lib/screens/reset_screen.dart
 
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+import 'email_reset_screen.dart'; // ← NEW import
 
 class ResetScreen extends StatelessWidget {
   const ResetScreen({super.key});
@@ -62,75 +62,82 @@ class ResetScreen extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              // Email Card
-              Container(
-                padding: const EdgeInsets.all(22),
-                decoration: BoxDecoration(
-                  color: kCard,
-                  borderRadius: BorderRadius.circular(28),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 86,
-                      height: 86,
-                      decoration: BoxDecoration(
-                        color: kOrange,
-                        borderRadius: BorderRadius.circular(26),
+              // Email Card — NOW TAPPABLE ↓
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const EmailResetScreen()),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(22),
+                  decoration: BoxDecoration(
+                    color: kCard,
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 86,
+                        height: 86,
+                        decoration: BoxDecoration(
+                          color: kOrange,
+                          borderRadius: BorderRadius.circular(26),
+                        ),
+                        child: const Icon(
+                          Icons.email_rounded,
+                          color: Colors.white,
+                          size: 38,
+                        ),
                       ),
-                      child: const Icon(
-                        Icons.email_rounded,
-                        color: Colors.white,
-                        size: 38,
-                      ),
-                    ),
 
-                    const SizedBox(width: 20),
+                      const SizedBox(width: 20),
 
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            'Send via Email',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w800,
-                              color: kBlack,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'Send via Email',
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.w800,
+                                color: kBlack,
+                              ),
                             ),
-                          ),
 
-                          SizedBox(height: 8),
+                            SizedBox(height: 8),
 
-                          Text(
-                            'Seamlessly reset your\npassword via email address.',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: kGreyText,
-                              height: 1.5,
+                            Text(
+                              'Seamlessly reset your\npassword via email address.',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: kGreyText,
+                                height: 1.5,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
 
-                    const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color(0xFFBDBDBD),
-                    ),
-                  ],
+                      const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Color(0xFFBDBDBD),
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
               const Spacer(),
 
-              // Reset Button
+              // Reset Button (also navigates to email screen)
               GestureDetector(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Password reset link sent to your email'),
-                    ),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const EmailResetScreen()),
                   );
                 },
                 child: Container(

@@ -13,7 +13,7 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           // Background Image
           SizedBox.expand(
-            child: Image.asset('assets/images/welcome.png', fit: BoxFit.cover),
+            child: Image.asset('assets/images/welcome.jpg', fit: BoxFit.cover),
           ),
 
           // Dark Overlay

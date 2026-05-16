@@ -166,7 +166,7 @@ class _HeroSection extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'assets/images/gym_bg.png',
+            'assets/images/bg.png',
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) =>
                 Container(color: const Color(0xFFEEEEEE)),
