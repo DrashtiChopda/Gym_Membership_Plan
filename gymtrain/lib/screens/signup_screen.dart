@@ -1,22 +1,6 @@
-// File: lib/screens/signup_screen.dart
-//
-// SETUP INSTRUCTIONS:
-// 1. Same pubspec.yaml setup as login_screen.dart
-//    (assets/images/gym_bg.png must be present)
-//
-// 2. This screen is already connected to LoginScreen via
-//    Navigator.pushReplacement — see _SignInLink at bottom.
-//
-// 3. Make sure both files exist:
-//    lib/screens/login_screen.dart
-//    lib/screens/signup_screen.dart
-//
-// 4. In your main.dart set home to either screen:
-//    home: const SignupScreen()
-//    or use named routes (see main.dart snippet below)
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gymtrain/basicInfo/age_screen.dart';
 import 'login_screen.dart'; // ← connects to LoginScreen
 
 class SignupScreen extends StatefulWidget {
@@ -60,14 +44,26 @@ class _SignupScreenState extends State<SignupScreen> {
 
   void _onSignUp() {
     final password = _passwordController.text;
+
     final confirm = _confirmController.text;
 
     if (confirm != password) {
-      setState(() => _confirmHasError = true);
+      setState(() {
+        _confirmHasError = true;
+      });
+
       return;
     }
-    setState(() => _confirmHasError = false);
-    // TODO: implement actual sign-up logic
+
+    setState(() {
+      _confirmHasError = false;
+    });
+
+    Navigator.pushReplacement(
+      context,
+
+      MaterialPageRoute(builder: (_) => const AgeScreen()),
+    );
   }
 
   @override

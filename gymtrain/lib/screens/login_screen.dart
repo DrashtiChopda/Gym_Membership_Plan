@@ -1,31 +1,8 @@
-// File: lib/screens/login_screen.dart
-//
-// SETUP INSTRUCTIONS:
-// 1. Add to pubspec.yaml:
-//
-//    dependencies:
-//      flutter:
-//        sdk: flutter
-//
-//    flutter:
-//      assets:
-//        - assets/images/gym_bg.png
-//
-// 2. Place gym background image at: assets/images/gym_bg.png
-// 3. Run: flutter pub get
-// 4. Entry point in main.dart:
-//    import 'screens/login_screen.dart';
-//    home: const LoginScreen()
-//
-// ── NAVIGATION MAP ────────────────────────────────────────────────
-//   LoginScreen  ──[Sign Up]──►  SignupScreen
-//   SignupScreen ──[Sign In]──►  LoginScreen   (in signup_screen.dart)
-// ──────────────────────────────────────────────────────────────────
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'signup_screen.dart'; // ← connects to SignupScreen
 import 'reset_screen.dart'; // ← connects to ResetScreen
+import 'package:gymtrain/basicInfo/age_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
