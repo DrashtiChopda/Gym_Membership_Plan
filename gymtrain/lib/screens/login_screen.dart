@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'signup_screen.dart'; // ← connects to SignupScreen
 import 'reset_screen.dart'; // ← connects to ResetScreen
+import 'package:gymtrain/screens/dashboard_screen.dart';
 import 'package:gymtrain/basicInfo/age_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -73,7 +74,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     _ActionButton(
                       label: 'Sign In',
                       onTap: () {
-                        // TODO: implement sign-in logic
+                        // Login success -> go to HomeScreen
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const HomeScreen(userName: 'User'),
+                          ),
+                        );
                       },
                     ),
 

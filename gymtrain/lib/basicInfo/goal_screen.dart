@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gymtrain/screens/dashboard_screen.dart';
 
 class GoalScreen extends StatefulWidget {
-  const GoalScreen({super.key});
+  final String userName;
+
+  const GoalScreen({super.key, required this.userName});
 
   @override
   State<GoalScreen> createState() => _GoalScreenState();
@@ -226,7 +229,12 @@ class _GoalScreenState extends State<GoalScreen> {
               // Continue Button
               GestureDetector(
                 onTap: () {
-                  // FINAL SUBMIT
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => HomeScreen(userName: widget.userName),
+                    ),
+                  );
                 },
 
                 child: Container(

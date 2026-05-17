@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'gender_screen.dart';
 
 class FitnessLevelScreen extends StatefulWidget {
-  const FitnessLevelScreen({super.key});
+  final String userName;
+
+  const FitnessLevelScreen({super.key, required this.userName});
 
   @override
   State<FitnessLevelScreen> createState() => _FitnessLevelScreenState();
@@ -261,7 +263,9 @@ class _FitnessLevelScreenState extends State<FitnessLevelScreen> {
                   Navigator.push(
                     context,
 
-                    MaterialPageRoute(builder: (_) => const GenderScreen()),
+                    MaterialPageRoute(
+                      builder: (_) => GenderScreen(userName: widget.userName),
+                    ),
                   );
                 },
 

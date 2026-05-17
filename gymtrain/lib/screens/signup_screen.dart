@@ -14,6 +14,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
 
   bool _obscurePassword = true;
   bool _obscureConfirm = true;
@@ -59,10 +60,12 @@ class _SignupScreenState extends State<SignupScreen> {
       _confirmHasError = false;
     });
 
+    final userName = _userNameController.text.trim();
+
+    // Signup success -> continue to onboarding (AgeScreen) and keep userName
     Navigator.pushReplacement(
       context,
-
-      MaterialPageRoute(builder: (_) => const AgeScreen()),
+      MaterialPageRoute(builder: (_) => AgeScreen(userName: userName)),
     );
   }
 
@@ -88,6 +91,18 @@ class _SignupScreenState extends State<SignupScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const SizedBox(height: 32),
+
+                    // User name
+                    _FieldLabel(label: 'User Name'),
+                    const SizedBox(height: 8),
+                    _PlainInputField(
+                      controller: _userNameController,
+                      hint: 'e.g. Drashti',
+                      prefixIcon: Icons.person_outline_rounded,
+                      keyboardType: TextInputType.name,
+                    ),
+
+                    const SizedBox(height: 20),
 
                     // Email
                     _FieldLabel(label: 'Email Address'),

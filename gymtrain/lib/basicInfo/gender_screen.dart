@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'goal_screen.dart';
 
 class GenderScreen extends StatefulWidget {
-  const GenderScreen({super.key});
+  final String userName;
+
+  const GenderScreen({super.key, required this.userName});
 
   @override
   State<GenderScreen> createState() => _GenderScreenState();
@@ -289,7 +291,9 @@ class _GenderScreenState extends State<GenderScreen> {
                   Navigator.push(
                     context,
 
-                    MaterialPageRoute(builder: (_) => const GoalScreen()),
+                    MaterialPageRoute(
+                      builder: (_) => GoalScreen(userName: widget.userName),
+                    ),
                   );
                 },
 
